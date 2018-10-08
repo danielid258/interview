@@ -11,6 +11,16 @@ import java.util.concurrent.FutureTask;
 /**
  * Daniel on 2018/10/8.
  * <p>
+ * 线程间通信
+ *
+ * thread.join(),
+ * object.wait(),
+ * object.notify(),
+ * CountdownLatch,
+ * CyclicBarrier,
+ * FutureTask,
+ * Callable
+ *
  * 两个线程A、B分别按照不同顺序打印 1-3 三个数字
  */
 public class ThreadCommunication {
