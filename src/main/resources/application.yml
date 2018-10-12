@@ -1,4 +1,21 @@
 spring:
+  datasource:
+    db1:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/db1?useUnicode=true&characterEncoding=utf-8&useSSL=fals
+      username: root
+      password: 111
+    db2:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/db2?useUnicode=true&characterEncoding=utf-8&useSSL=fals
+      username: root
+      password: 111
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.daniel.interview.domain
+
+
+
   redis:
     host: 192.168.41.6
     port: 6379

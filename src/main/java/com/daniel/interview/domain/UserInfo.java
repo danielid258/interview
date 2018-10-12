@@ -12,8 +12,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User extends BaseDomain {
-    private String id;
+public class UserInfo{
+    private Long id;
     private String userName;
     private int userAge;
 }
