@@ -8,10 +8,10 @@ package com.daniel.interview.designpattern.proxy;
  *
  *  缺点  因为代理对象需要与目标对象实现一样的接口,会导致代理类太多. 同时,一旦接口增加方法,目标对象与代理对象都要维护
  */
-public class UserServiceStaticProxy implements IUserService{
+public class StaticProxy implements IUserService{
     private IUserService target;
 
-    public UserServiceStaticProxy(IUserService target) {
+    public StaticProxy(IUserService target) {
         this.target = target;
     }
 
