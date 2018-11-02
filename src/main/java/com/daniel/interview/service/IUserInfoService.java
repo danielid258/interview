@@ -8,11 +8,11 @@ import java.util.List;
  * Daniel on 2018/10/12.
  */
 public interface IUserInfoService {
-    int insert(UserInfo pojo);
+    Long insert(UserInfo pojo);
 
     int insertList(List<UserInfo> pojos);
 
-    List<UserInfo> select(UserInfo pojo);
+    List<UserInfo> findByUserName(String userName);
 
-    int update(UserInfo pojo);
+    void update(UserInfo pojo);
 }

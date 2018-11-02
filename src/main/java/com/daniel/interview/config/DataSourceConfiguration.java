@@ -3,6 +3,7 @@ package com.daniel.interview.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -16,6 +17,7 @@ import java.util.Map;
  * <p>
  * 多数据源配置类
  */
+@Configuration
 public class DataSourceConfiguration {
     public static final String DATASOURCE1="dataSource1";
     public static final String DATASOURCE2="dataSource2";
@@ -42,7 +44,7 @@ public class DataSourceConfiguration {
         return DataSourceBuilder.create().build();
     }
 
-    @Primary
+    @Primary        //@Primary 多个相同类型的bean中 优先使用@Primary注解的bean
     @Bean(name = "dynamicDataSource")
     public DataSource dynamicDataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
@@ -51,8 +53,8 @@ public class DataSourceConfiguration {
 
         // 配置多数据源
         Map<Object, Object> dataSourceMap = new HashMap<>();
-        dataSourceMap.put("dataSource1", dataSource1());
-        dataSourceMap.put("dataSource2", dataSource2());
+        dataSourceMap.put(DATASOURCE1, dataSource1());
+        dataSourceMap.put(DATASOURCE2, dataSource2());
 
         dynamicDataSource.setTargetDataSources(dataSourceMap);
 
