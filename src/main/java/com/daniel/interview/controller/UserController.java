@@ -1,5 +1,6 @@
 package com.daniel.interview.controller;
 
+import com.daniel.interview.annotation.RequestLimit;
 import com.daniel.interview.domain.UserInfo;
 import com.daniel.interview.service.IUserInfoService;
 import com.daniel.interview.vo.ResultVO;
@@ -48,4 +49,11 @@ public class UserController {
         userInfoService.update(userInfo);
         return ResultVOUtil.succeed();
     }
+
+    @GetMapping("/insert")
+    @RequestLimit
+    public ResultVO insertLogTest() {
+        return ResultVOUtil.succeed();
+    }
+
 }

@@ -10,6 +10,7 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -30,6 +31,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 @Component
 @Aspect
+@Order(value = -2)
 public class RequestLimitAspect {
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
@@ -41,6 +43,7 @@ public class RequestLimitAspect {
     //拦截controller 中有 @RequestLimit的方法
     @Before("execution(public * com.daniel.interview.controller.*.*(..)) && @annotation(requestLimit)")
     public void requestLimit(JoinPoint joinpoint, RequestLimit requestLimit) {
+        log.info("============== request rate limit ...");
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         String ip = HttpRequestUtil.getIpAdd(request);
