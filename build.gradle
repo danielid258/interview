@@ -28,13 +28,20 @@ repositories {
 dependencies {
 
     //redis
-    compile('org.apache.commons:commons-pool2')
+    compile('org.apache.commons:commons-pool2')     //lettuce client dependence commons-pool2
     compile('org.springframework.boot:spring-boot-starter-data-redis')
+//    compile('redis.clients:jedis:2.9.0')
+//    compile('org.redisson:redisson:3.7.5')
+
+//    compile('org.springframework.boot:spring-boot-starter-jdbc')
+//    implementation('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2')
 
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
-    runtime('mysql:mysql-connector-java')
-    compileOnly('org.projectlombok:lombok')
+    compile('org.springframework.boot:spring-boot-starter-amqp')
+    runtimeOnly('mysql:mysql-connector-java')
+//    compileOnly('org.projectlombok:lombok')
+    compile('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
