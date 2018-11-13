@@ -68,7 +68,7 @@ public class ThreadCommunication {
         //B==>> 3
     }
 
-    //A打印完1后，让B打印 1, 2, 3，最后再回到 A 继续打印 2, 3
+    //A打印完1后,让B打印 1, 2, 3,最后再回到 A 继续打印 2, 3
     //synchronized + object.wait() + object.notify() 实现
     private static void test3() {
         Object lock = new Object();
@@ -124,7 +124,7 @@ public class ThreadCommunication {
         //A:odd number==>9
     }
 
-    //四个线程 A B C D，其中 D 要等到 A B C 全执行完毕后才执行，而且 A B C 是同步运行的
+    //四个线程 A B C D,其中 D 要等到 A B C 全执行完毕后才执行,而且 A B C 是同步运行的
     private static void test5() {
         int worker = 3;
         //CountDownLatch 可以用于线程间倒计数
@@ -160,9 +160,9 @@ public class ThreadCommunication {
         }
     }
 
-    //三个运动员各自准备，等到三个人都准备好后，再一起跑
-    //针对 线程 A B C 各自开始准备，直到三者都准备完毕，然后再同时运行 。也就是要实现一种 线程之间互相等待 的效果
-    //CountDownLatch 可以用来倒计数，但当计数完毕，只有一个线程的 await() 会得到响应，无法让多个线程同时触发
+    //三个运动员各自准备,等到三个人都准备好后,再一起跑
+    //针对 线程 A B C 各自开始准备,直到三者都准备完毕,然后再同时运行 。也就是要实现一种 线程之间互相等待 的效果
+    //CountDownLatch 可以用来倒计数,但当计数完毕,只有一个线程的 await() 会得到响应,无法让多个线程同时触发
     //CyclicBarrier 可以实现线程间互相等待这种需求
     private static void test6() {
         int runner = 3;
@@ -183,23 +183,23 @@ public class ThreadCommunication {
                 }
                 System.out.println(tName + " is prepared, waiting for others");
                 try {
-                    // 当前线程准备完毕，等待其他准备好
+                    // 当前线程准备完毕,等待其他准备好
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 }
-                System.out.println("ALL done, " + tName + " starts running"); // 所有运动员都准备好了，一起开始跑
+                System.out.println("ALL done, " + tName + " starts running"); // 所有运动员都准备好了,一起开始跑
             }, tName).start();
 
         }
     }
 
-    //创建子线程完成一些耗时任务，然后把任务执行结果回传给主线程使用
-    //举例 子线程计算从 1 加到 100，并把算出的结果返回到主线程
+    //创建子线程完成一些耗时任务,然后把任务执行结果回传给主线程使用
+    //举例 子线程计算从 1 加到 100,并把算出的结果返回到主线程
     //Callable + FutureTask
-    //通过 FutureTask 和 Callable 可以直接在主线程获得子线程的运算结果，但是需要阻塞主线程。如果不希望阻塞主线程，可以利用 ExecutorService，把 FutureTask 放到线程池去管理执行
+    //通过 FutureTask 和 Callable 可以直接在主线程获得子线程的运算结果,但是需要阻塞主线程。如果不希望阻塞主线程,可以利用 ExecutorService,把 FutureTask 放到线程池去管理执行
     private static void test7() {
 
         Callable<Integer> callable = new Callable<Integer>() {

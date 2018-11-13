@@ -8,7 +8,7 @@ public class Singleton {
 }
 
 
-//饿汉式，无线程安全问题，不能延迟加载，影响系统性能
+//饿汉式,无线程安全问题,不能延迟加载,影响系统性能
 /*
 class Singleton {
     private static Singleton instance = new Singleton();
@@ -22,7 +22,7 @@ class Singleton {
 }
 */
 
-//双重校验锁，线程安全，推荐使用
+//双重校验锁,线程安全,推荐使用
 /*
 public class Singleton {
 
@@ -42,7 +42,7 @@ public class Singleton {
 }
 */
 
-//静态内部类，线程安全，主动调用时才实例化，延迟加载效率高，推荐使用
+//静态内部类,线程安全,主动调用时才实例化,延迟加载效率高,推荐使用
 /*
 public class Singleton {
     private static class SingletonHolder {

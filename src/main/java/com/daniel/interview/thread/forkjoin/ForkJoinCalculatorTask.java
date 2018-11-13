@@ -41,7 +41,7 @@ public class ForkJoinCalculatorTask extends RecursiveTask<Long> {
             right.fork();
 
             //等待子任务执行完 并得到其结果
-            //主线程需要等待子线程执行完成之后再结束，这时候就要用到join()
+            //主线程需要等待子线程执行完成之后再结束,这时候就要用到join()
             Long leftResult = left.join();
             Long rightResult = right.join();
 

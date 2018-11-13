@@ -62,7 +62,7 @@ public class RabbitMQCConfig {
 
     /**
      * Fanout模式
-     * Fanout 就是我们熟悉的广播模式或者订阅模式，给Fanout交换机发送消息，绑定了这个交换机的所有队列都收到这个消息。
+     * Fanout 就是我们熟悉的广播模式或者订阅模式,给Fanout交换机发送消息,绑定了这个交换机的所有队列都收到这个消息。
      *
      * @return
      */
@@ -93,7 +93,7 @@ public class RabbitMQCConfig {
 
     /**
      * direct模式
-     * 消息中的路由键（routing key）如果和 Binding 中的 binding key 一致， 交换器就将消息发到对应的队列中。路由键与队列名完全匹配
+     * 消息中的路由键（routing key）如果和 Binding 中的 binding key 一致, 交换器就将消息发到对应的队列中。路由键与队列名完全匹配
      *
      * @return
      */

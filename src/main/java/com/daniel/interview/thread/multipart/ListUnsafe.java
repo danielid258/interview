@@ -15,8 +15,8 @@ public class ListUnsafe {
 
     //ArrayList 在并发情况下会出现的几种现象
     //java.lang.ArrayIndexOutOfBoundsException: 2776
-    //程序正常运行，输出了少于实际容量的大小
-    //程序正常运行，输出了预期容量的大小
+    //程序正常运行,输出了少于实际容量的大小
+    //程序正常运行,输出了预期容量的大小
     private static void test1() throws InterruptedException {
         List<Integer> list = new ArrayList<>();
 
