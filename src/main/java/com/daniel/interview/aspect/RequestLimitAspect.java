@@ -18,6 +18,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Daniel on 2018/10/26.
@@ -65,5 +66,7 @@ public class RequestLimitAspect {
                     String.format("接口访问频率超出限制:[%d]毫秒内只能请求[%d]次", requestLimit.duration(), requestLimit.count()));
         }
         //通过redis key过期时间 实现每个时间限制区间的自动推移 即每次过期就解除当前一轮的限制
+
+        AtomicInteger a = new AtomicInteger(1);
     }
 }
